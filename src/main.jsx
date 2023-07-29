@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-let array=["\src\assets\normal.png","src/assets/sunny.png","src/assets/rainy.png"]
+let array=["/src/assets/normal.png","src/assets/sunny.png","src/assets/rainy.png"]
 
-function Temp({name,temperature,imageSrc}) {
+function Temp({name,temperature,imageSrc,condition}) {
   const rootStyles = {
       
       backgroundColor: '#020D45',
       color: '#ffffff',
       fontFamily: 'Inter',
-      fontSize: '80px',
+      fontSize: '90px',
       fontStyle: 'normal',
       fontWeight: 400,
       lineHeight: '120%', /* 240px */
@@ -27,6 +27,11 @@ function Temp({name,temperature,imageSrc}) {
       background: 'radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)',
       boxShadow: '-5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset',
       backdropFilter: 'blur(21px)',
+      whiteSpace: 'nowrap',
+    }
+    const condstyle={
+      fontSize:'60px',
+      lineHeight:'0'
     }
   
  
@@ -35,6 +40,7 @@ function Temp({name,temperature,imageSrc}) {
     <div style={rootStyles} className="root">
       <img src={imageSrc} alt="" />
       <p>{temperature}</p>
+      <small style={condstyle}>{condition}</small>
       <p>{name}</p>
     </div>
   )
@@ -83,7 +89,9 @@ async function fetchWeatherData(latitude, longitude) {
       let precip_in = JSON.stringify(data.current.precip_p)
       let name = data.location.name
       let imageSrc = imageSelect(precip_in,temperature)
-      ReactDOM.createRoot(root).render(<Temp name={name} temperature={temperature} imageSrc={imageSrc}/>);
+      let condition = data.current.condition.text
+      ReactDOM.createRoot(root).render(<Temp name={name} temperature={temperature} imageSrc={imageSrc} condition={condition}/>);
+      console.log(JSON.stringify(data))
   })
 }
 function imageSelect(precip_in,temperature){
