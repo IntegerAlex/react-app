@@ -75,7 +75,7 @@ function onError(error) {
 }
 
 async function fetchWeatherData(latitude, longitude) {
-  apiUrl= `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`;
+  apiUrl= `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`;
   fetch(apiUrl).then((response) => response.json()).then((data)=> {
       // document.getElementById("temp").innerHTML=JSON.stringify(data)
       // document.getElementById("loca").innerHTML=JSON.stringify(data.location.name)
