@@ -12,7 +12,7 @@ function Temp({name,temperature,imageSrc,condition}) {
       fontFamily: 'Inter',
       fontSize: 'calc(4vw + 20px)',
       fontStyle: 'normal',
-      fontWeight: 400,
+      fontWeight: 200,
       lineHeight: '120%', /* 240px */
       letterSpacing: '-10px',
       display: 'flex',
@@ -34,9 +34,8 @@ function Temp({name,temperature,imageSrc,condition}) {
       borderRadius: '50px',
     }
     const condstyle = {
-      fontSize: 'calc(1vw + 10px)', // Adjust relative font size for condition
+      fontSize: 'calc(1vw + 35px)', // Adjust relative font size for condition
       lineHeight: '0', // Add some spacing between lines
-      marginBottom: '10px',
       whiteSpace:'nowrap', // Add margin between the condition and name
     };
   
