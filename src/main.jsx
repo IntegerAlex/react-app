@@ -2,50 +2,56 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-let array=["/normal.png","/sunny.png","/rainy.png"]
+let array=["src/assets/normal.png","src/assets/sunny.png","src/assets/rainy.png"]
 
-function Temp({name,temperature,imageSrc,condition}) {
+function Temp({ name, temperature, imageSrc }) {
   const rootStyles = {
-      
-      backgroundColor: '#020D45',
-      color: '#ffffff',
-      fontFamily: 'Inter',
-      fontSize: '90px',
-      fontStyle: 'normal',
-      fontWeight: 400,
-      lineHeight: '120%', /* 240px */
-      letterSpacing: '-10px',
-      display: 'flex',
-      maxWidth: '521px',
-      width: '70%',
-      margin: '0 auto',
-      flexWrap: 'wrap',
-      padding: '1%',
-      flexDirection: 'column',
-      alignItems: 'center',
-      borderRadius: '50px',
-      background: 'radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)',
-      boxShadow: '-5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset',
-      backdropFilter: 'blur(21px)',
-      whiteSpace: 'nowrap',
-    }
-    const condstyle={
-      fontSize:'60px',
-      lineHeight:'0'
-    }
-  
- 
+    backgroundColor: '#020D45',
+    color: '#ffffff',
+    fontFamily: 'Inter',
+    fontSize: '90px',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    lineHeight: '120%', /* 240px */
+    letterSpacing: '-10px',
+    display: 'flex',
+    maxWidth: '521px',
+    width: '70%',
+    margin: '0 auto',
+    flexWrap: 'wrap',
+    padding: '1%',
+    flexDirection: 'column',
+    alignItems: 'center',
+    borderRadius: '50px',
+    background: 'radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)',
+    boxShadow: '-5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset',
+    backdropFilter: 'blur(21px)',
+    whiteSpace: 'nowrap',
+  };
 
-  return(
+  const condstyle = {
+    fontSize: '60px',
+    lineHeight: '0',
+  };
+
+  // Add media query for smaller screen sizes (e.g., mobile devices)
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  if (isMobile) {
+    rootStyles.fontSize = '60px';
+    condstyle.fontSize = '40px';
+  }
+
+  return (
     <div style={rootStyles} className="root">
       <img src={imageSrc} alt="" />
       <p>{temperature}</p>
       <small style={condstyle}>{condition}</small>
       <p>{name}</p>
     </div>
-  )
-  
-};
+  );
+}
+
 const root = document.getElementById("root");
 
 
