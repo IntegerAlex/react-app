@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-let array=["/src/assets/normal.png","src/assets/sunny.png","src/assets/rainy.png"]
+let array=["/normal.png","/sunny.png","/rainy.png"]
 
 function Temp({name,temperature,imageSrc,condition}) {
   const rootStyles = {
