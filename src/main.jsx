@@ -28,12 +28,20 @@ function Temp({name,temperature,imageSrc,condition}) {
       boxShadow: '-5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset',
       backdropFilter: 'blur(21px)',
       whiteSpace: 'nowrap',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      borderRadius: '50px',
     }
-    const condstyle={
-      fontSize: 'calc(2vw + 20px)',
-      lineHeight:'0'
-    }
+    const condstyle = {
+      fontSize: 'calc(1vw + 10px)', // Adjust relative font size for condition
+      lineHeight: '0', // Add some spacing between lines
+      marginBottom: '10px', // Add margin between the condition and name
+    };
   
+    const nameStyle = {
+      fontSize: 'calc(2vw + 20px)', // Adjust relative font size for name
+    };
  
 
   return(
