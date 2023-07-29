@@ -51,6 +51,7 @@ function Temp({name,temperature,imageSrc,condition}) {
       <p>{temperature}</p>
       <small style={condstyle}>{condition}</small>
       <p>{name}</p>
+      <button onClick={getUserLocation}>Get Location</button>
     </div>
   )
   
