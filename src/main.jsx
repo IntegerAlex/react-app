@@ -10,7 +10,7 @@ function Temp({name,temperature,imageSrc,condition}) {
       backgroundColor: '#020D45',
       color: '#ffffff',
       fontFamily: 'Inter',
-      fontSize: '90px',
+      fontSize: 'calc(4vw + 20px)',
       fontStyle: 'normal',
       fontWeight: 400,
       lineHeight: '120%', /* 240px */
@@ -30,7 +30,7 @@ function Temp({name,temperature,imageSrc,condition}) {
       whiteSpace: 'nowrap',
     }
     const condstyle={
-      fontSize:'60px',
+      fontSize: 'calc(2vw + 20px)',
       lineHeight:'0'
     }
   
