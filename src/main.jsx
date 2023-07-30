@@ -4,58 +4,59 @@ import './index.css';
 
 let array=["src/assets/normal.png","src/assets/sunny.png","src/assets/rainy.png"]
 
-function Temp({name,temperature,imageSrc,condition}) {
-  const rootStyles = {
-      
-      backgroundColor: '#020D45',
-      color: '#ffffff',
-      fontFamily: 'Inter',
-      fontSize: 'calc(4vw + 20px)',
-      fontStyle: 'normal',
-      fontWeight: 200,
-      lineHeight: '120%', /* 240px */
-      letterSpacing: '-10px',
-      display: 'flex',
-      maxWidth: '521px',
-      width: '70%',
-      margin: '0 auto',
-      flexWrap: 'wrap',
-      padding: '1%',
-      flexDirection: 'column',
-      alignItems: 'center',
-      borderRadius: '50px',
-      background: 'radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)',
-      boxShadow: '-5px -5px 250px 0px rgba(255, 255, 255, 0.02) inset',
-      backdropFilter: 'blur(21px)',
-      whiteSpace: 'nowrap',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      borderRadius: '50px',
-    }
-    const condstyle = {
-      fontSize: 'calc(1vw + 35px)', // Adjust relative font size for condition
-      lineHeight: '0', // Add some spacing between lines
-      whiteSpace:'nowrap', // Add margin between the condition and name
-    };
-  
-    const nameStyle = {
-      fontSize: 'calc(2vw + 20px)', 
-      whiteSpace:'nowrap'// Adjust relative font size for name
-    };
- 
+const rootStyles = {
+  backgroundColor: '#020D45',
+  color: '#ffffff',
+  fontFamily: 'inter',
+  fontSize: 'calc(5vw + 16px)', // Adjust font size for different screen sizes
+  fontWeight: 400,
+  lineHeight: '150%',
+  letterSpacing: '-1px', // Slightly reduce the letter-spacing
+  maxWidth: '400px', // Limit the width for better readability on mobile
+  width: '90%', // Use percentage width to adapt to different screen sizes
+  margin: '0 auto', // Center the element horizontally
+  borderRadius: '20px',
+  padding: '2%',
+  textAlign: 'center', // Center text within the element
+  background: 'radial-gradient(107.32% 141.42% at 0% 0%, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%)',
+  boxShadow: '-5px -5px 20px 0px rgba(255, 255, 255, 0.02) inset',
+  backdropFilter: 'blur(10px)',
+};
 
-  return(
+const condStyle = {
+  fontSize: 'calc(4vw + 10px)', // Adjust font size for different screen sizes
+  fontWeight: 500, // Make the condition text slightly bolder
+  marginBottom: '10px', // Add some margin at the bottom of the condition text
+};
+
+const tempStyle = {
+  fontSize: 'calc(8vw + 20px)', // Adjust font size for different screen sizes
+  fontWeight: 700, // Make the temperature text bolder
+  margin: '10px 0', // Add some vertical margin to temperature text
+};
+
+const nameStyle = {
+  fontSize: 'calc(6vw + 12px)', // Adjust font size for different screen sizes
+  fontWeight: 300, // Make the city name text semi-bold
+};
+
+function Temp({ name, temperature, imageSrc, condition }) {
+  
+  return (
     <div style={rootStyles} className="root">
       <img src={imageSrc} alt="" />
-      <p>{temperature}</p>
-      <small style={condstyle}>{condition}</small>
-      <p>{name}</p>
+      <p style={tempStyle}>{temperature}</p>
+      <small style={condStyle}>{condition}</small>
+      <p style={nameStyle}>{name}</p>
       <button onClick={getUserLocation}>Get Location</button>
     </div>
-  )
+  );
+}
+
+// ... (rest of the code remains the same)
+
   
-};
+
 const root = document.getElementById("root");
 
 
